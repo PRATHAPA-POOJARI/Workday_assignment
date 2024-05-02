@@ -8,15 +8,7 @@ function App() {
   return (
 
     <Home/>
-    // <Router>
-    //   <Routes>
-    //     {/* <Route path="/" element={<LoginPage setLoggedIn={setLoggedIn} />} /> Pass setLoggedIn to LoginPage */}
-    //     <Route path="/home" element={<Home />} />
-    //     <Route path="/contact" element={<Contact cartItems={cartItems} />} />
-    //     <Route path="/menu" element={<Menu setCartItems={setCartItems} />} />
-    //     <Route path="/*" element={<Home />} />
-    //   </Routes>
-    // </Router>
+    
   );
 }
 
