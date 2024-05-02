@@ -4,28 +4,28 @@ import Layout from '../components/Layout/Layout';
 import JobCard from '../components/JobCard/JobCard';
 import FilterPanel from '../components/FilterPanel/FilterPanel';
 
+async function getData(api) {
+  console.log("API URL:", api); // Log the API URL
+  const response = await fetch(api, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      limit: 10,
+      offset: 0
+    })
+  });
+  return response.json();
+}
+
 const Home = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    const body = JSON.stringify({
-      "limit": 10,
-      "offset": 0
-    });
-
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body
-    };
-
-    const fetchJobs = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch("https://api.weekday.technology/adhoc/getSampleJdJSON", requestOptions);
-        const data = await response.json();
+        const data = await getData("https://api.weekday.technology/adhoc/getSampleJdJSON");
         if (data.jobs) {
           setJobs(data.jobs);
         }
@@ -34,7 +34,7 @@ const Home = () => {
       }
     };
 
-    fetchJobs();
+    fetchData();
   }, []);
 
   return (
