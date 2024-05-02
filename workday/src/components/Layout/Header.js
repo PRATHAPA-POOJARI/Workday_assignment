@@ -50,7 +50,7 @@ const Header = () => {
   return (
     <>
       <Box>
-        <AppBar component={"nav"} sx={{ bgcolor: "blue" }}>
+        <AppBar component={"nav"} sx={{ bgcolor: "#00BFFF" }}>
           <Toolbar>
             <IconButton
               color="inherit"
