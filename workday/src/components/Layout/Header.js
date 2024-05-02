@@ -9,10 +9,7 @@ import {
   Toolbar,
   Typography,
   Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,TextField
+ TextField
 } from "@mui/material";
 
 
@@ -53,7 +50,7 @@ const Header = () => {
   return (
     <>
       <Box>
-        <AppBar component={"nav"} sx={{ bgcolor: "white" }}>
+        <AppBar component={"nav"} sx={{ bgcolor: "black" }}>
           <Toolbar>
             <IconButton
               color="inherit"
