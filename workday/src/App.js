@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Home from './pages/Home';
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false); // Add loggedIn state
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Home/>
+    // <Router>
+    //   <Routes>
+    //     {/* <Route path="/" element={<LoginPage setLoggedIn={setLoggedIn} />} /> Pass setLoggedIn to LoginPage */}
+    //     <Route path="/home" element={<Home />} />
+    //     <Route path="/contact" element={<Contact cartItems={cartItems} />} />
+    //     <Route path="/menu" element={<Menu setCartItems={setCartItems} />} />
+    //     <Route path="/*" element={<Home />} />
+    //   </Routes>
+    // </Router>
   );
 }
 
