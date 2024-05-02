@@ -1,3 +1,4 @@
+// Home.js
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import JobCard from '../components/JobCard/JobCard';
@@ -27,7 +28,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <FilterPanel /> {/* Assuming you have a FilterPanel component for filtering */}
+      <FilterPanel />
       <div className="home-container">
         {jobs.map((job, index) => (
           <JobCard key={index} job={job} />
