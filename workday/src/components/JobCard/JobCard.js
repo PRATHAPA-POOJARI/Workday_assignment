@@ -1,19 +1,11 @@
-// JobCard.js
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Card, CardContent, Typography, CardActions, Button } from '@mui/material';
 
 const JobCard = ({ job }) => {
   const { jdUid, jdLink, jobDetailsFromCompany } = job;
 
   // Define inline styles
-  const cardStyle = {
-    backgroundColor: '#f9f9f9',
-    border: '1px solid #ddd',
-    borderRadius: '5px',
-    padding: '20px',
-    marginBottom: '20px',
-  };
-
   const headingStyle = {
     fontSize: '1.2rem',
     marginBottom: '10px',
@@ -24,17 +16,29 @@ const JobCard = ({ job }) => {
     textDecoration: 'none',
   };
 
-  const linkHoverStyle = {
-    textDecoration: 'underline',
+  // Function to truncate the job description text
+  const truncateDescription = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + '...';
+    }
+    return text;
   };
 
   return (
-    <div style={cardStyle}>
-      <h2 style={headingStyle}>Job Details:</h2>
-      <p>Job ID: {jdUid}</p>
-      <p>Job Link: <a href={jdLink} style={linkStyle} target="_blank" rel="noopener noreferrer">{jdLink}</a></p>
-      <p>Job Description: {jobDetailsFromCompany}</p>
-    </div>
+    <Card sx={{ display: 'inline-block', maxWidth: "300px", m: 2, '@media (max-width: 600px)': { maxWidth: '100%' } }}>
+      <CardContent>
+        <Typography variant="h5" style={headingStyle} gutterBottom>
+          Job Details:
+        </Typography>
+        <Typography variant="body1">Job ID: {jdUid}</Typography>
+        <Typography variant="body1">Job Link: <a href={jdLink} style={linkStyle} target="_blank" rel="noopener noreferrer">{jdLink}</a></Typography>
+        <Typography variant="body1">Job Description: {truncateDescription(jobDetailsFromCompany, 150)}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button variant="contained" color="primary" size="small">Easy Apply</Button>
+        <Button variant="contained" color="secondary" size="small">Referral</Button>
+      </CardActions>
+    </Card>
   );
 };
 
